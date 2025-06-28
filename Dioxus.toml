@@ -1,0 +1,10 @@
+[application]
+
+[web.app]
+title = "peggy"
+
+[web.watcher]
+
+[web.resource]
+
+[web.resource.dev]
