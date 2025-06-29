@@ -29,7 +29,7 @@ pub fn Echo() -> Element {
                     "Server echoed: "
                     // Since we read the signal inside this component, the component "subscribes" to the signal. Whenever
                     // the signal changes, the component will rerun.
-                    i { "{response}" }
+                    i { class: "bg-gray", "{response}" }
                 }
             }
         }

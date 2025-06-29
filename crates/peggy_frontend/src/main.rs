@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use views::{Blog, Home, Navbar};
+use views::{Blog, Home, Navbar, NotFound};
 
 mod components;
 mod views;
@@ -8,8 +8,6 @@ mod views;
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
 enum Route {
-    // The layout attribute defines a wrapper for all routes under the layout. Layouts are great for wrapping
-    // many routes with a common UI like a navbar.
     #[layout(Navbar)]
         // The route attribute defines the URL pattern that a specific route matches. If that pattern matches the URL,
         // the component for that route will be rendered. The component name that is rendered defaults to the variant name.
@@ -21,6 +19,8 @@ enum Route {
         // Fields of the route variant will be passed to the component as props. In this case, the blog component must accept
         // an `id` prop of type `i32`.
         Blog { id: i32 },
+        #[route("/:..segments")]
+        NotFound { segments: Vec<String> },
 }
 
 // We can import assets in dioxus with the `asset!` macro. This macro takes a path to an asset relative to the crate root.
